@@ -1,0 +1,28 @@
+body {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    max-width: 1980px; 
+    margin: 0;
+    min-height: 100vh;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: fit-content;
+    padding-bottom: 300px;
+}
+
+@media (max-width: 768px) {
+    
+    body {
+        max-width: 768px;
+        padding: 0;
+        margin: 0;
+    }
+  }
+  

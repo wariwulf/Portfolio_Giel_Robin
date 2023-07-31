@@ -1,0 +1,41 @@
+.footer {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    background-color: black;
+    overflow: hidden;
+    background-position: center;
+    background-size: cover;
+    bottom: 0;
+
+    .footer-content {
+        display: flex;
+        justify-content: center;
+
+        .footer-img{
+            padding-left: 15%;
+            height: auto;
+            background-position: center;
+            background-size: cover;
+        }
+
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .footer {
+
+        .footer-content{
+
+            .footer-img{
+                padding-left: 0%;
+                height: auto;
+                background-position: center;
+                background-size: cover;
+            }
+        }
+    
+    }
+}

@@ -1,0 +1,29 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "file-type": "^18.5.0",
+    "file-type-ext": "^1.0.1",
+    "jsonwebtoken": "^9.0.1",
+    "mongoose": "^7.4.2",
+    "mongoose-unique-validator": "^4.0.0",
+    "multer": "^1.4.5-lts.1",
+    "react-hook-form": "^7.45.4",
+    "sharp": "^0.32.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}

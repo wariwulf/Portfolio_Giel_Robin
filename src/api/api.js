@@ -51,7 +51,6 @@ export const getSkills = async () => {
       const response = await axios.post(API_ROUTES.SKILLS, skillData, {
         headers: {
           Authorization: `Bearer ${token}`,
-          'User-Id': userId, // Inclure l'userId dans le header User-Id
         },
       });
       return response.data;

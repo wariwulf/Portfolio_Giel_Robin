@@ -8,8 +8,8 @@ const { upload, resizeAndSaveImage } = require('../middleware/multer-config');
 
 const experienceCtrl = require('../controllers/experience');
 
-router.post('/', auth, upload.single('file'), resizeAndSaveImage, experienceCtrl.createExperience);
-router.put('/:id', auth, upload.single('file'), resizeAndSaveImage, experienceCtrl.updateExperience);
+router.post('/', auth, multer.upload, multer.resizeAndSaveImage, experienceCtrl.createExperience);
+router.put('/:id', auth, multer.upload, multer.resizeAndSaveImage, experienceCtrl.updateExperience);
 router.get('/:id', experienceCtrl.getOneExperience);
 router.get('/', experienceCtrl.getAllExperience);
 router.delete('/:id', auth, experienceCtrl.deleteExperience);

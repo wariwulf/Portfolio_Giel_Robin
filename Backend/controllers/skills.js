@@ -2,16 +2,19 @@ const Skill = require('../models/skills');
 const fs = require('fs');
 
 exports.createSkills = (req, res) => {
-
-    const skillObject = JSON.parse(req.body.skill);
-    delete skillObject._id;
-    delete skillObject._userId;
+    // Vérifier si le champ 'image' est présent dans la requête
+    if (!req.file || !req.file.hasOwnProperty('filename')) {
+      return res.status(400).json({ error: "Missing 'image' field in the request." });
+    }
+  
     const skill = new Skill({
-      ...skillObject,
-      userId: req.auth.userId,
+      title: req.body.title,
+      level: req.body.level,
+      achievements: req.body.achievements,
       imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`,
+      userId: req.auth.userId,
     });
-
+  
     // Enregistre la nouvelle compétence dans la base de données
     skill
       .save()
@@ -21,7 +24,8 @@ exports.createSkills = (req, res) => {
       .catch((error) => {
         res.status(400).json({ error });
       });
-};
+  };
+  
 
 
 exports.modifSkills = (req, res) => {

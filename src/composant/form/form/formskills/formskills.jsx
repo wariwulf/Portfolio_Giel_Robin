@@ -4,7 +4,7 @@ import { createSkill } from '../../../../api/api';
 
 function SkillForm({ onClose }) {
   const [imgSrc, setImgSrc] = useState(null);
-  const { register, handleSubmit, setValue } = useForm(); // Ajoutez setValue ici
+  const { register, handleSubmit, setValue } = useForm(); 
 
   const onSubmit = async (data) => {
     try {
@@ -12,7 +12,9 @@ function SkillForm({ onClose }) {
       formData.append('title', data.title);
       formData.append('level', data.level);
       formData.append('achievements', data.achievements);
-      formData.append('file', data.file[0]); // Utilisez data.file[0] pour récupérer le fichier
+      formData.append('image', data.image[0]);
+      
+      console.log('FormData:', formData);
 
       const response = await createSkill(formData);
       console.log(response);
@@ -24,7 +26,7 @@ function SkillForm({ onClose }) {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="skillform">
+    <form onSubmit={handleSubmit(onSubmit)} className="skillform" encType="multipart/form-data">
       <div>
         <label htmlFor="title">
           <p>Titre:</p>
@@ -44,9 +46,9 @@ function SkillForm({ onClose }) {
         </label>
       </div>
       <div>
-        <label htmlFor="file"> {/* Utilisez htmlFor="file" ici */}
+        <label htmlFor="image">
           <p>Image:</p>
-          <input {...register('file')} type="file" id="file" /> {/* Utilisez {...register('file')} */}
+          <input {...register('image')} type="file" id="image" accept="image/jpg, image/jpeg, image/png, image/gif"/> {/* Utilisez {...register('file')} */}
         </label>
       </div>
       <button type="submit">Ajouter</button>

@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const path = require('path');
 const bodyParser = require('body-parser');
+const UPLOADS_DIR = path.join(__dirname, '../images');
 
 const skillsRoutes = require('./routes/skills');
 const userRoutes = require('./routes/user');
@@ -26,7 +27,7 @@ app.use('/api/skills', skillsRoutes);
 app.use('/api/auth', userRoutes);
 app.use('/api/experience', experienceRoutes);
 
-app.use('/images', express.static(path.join(__dirname, 'images')));
+app.use('/images', express.static(UPLOADS_DIR));
 
 app.use((error, req, res, next) => {
   console.error(error.stack);

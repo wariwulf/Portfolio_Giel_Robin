@@ -1,0 +1,13 @@
+.gallery-pro {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #77ACFF;
+    margin-top: 5em;
+    border-radius: 25px;
+
+    .experience-card {
+        width: 90%;
+    }
+}

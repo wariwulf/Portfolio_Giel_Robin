@@ -4,22 +4,28 @@ import { createSkill } from '../../../../api/api';
 
 function SkillForm({ onClose }) {
   const [imgSrc, setImgSrc] = useState(null);
-  const { register, handleSubmit, setValue } = useForm(); 
+  const { register, handleSubmit } = useForm(); 
 
   const onSubmit = async (data) => {
+    console.log('Title:', data.title);
+    console.log('Level:', data.level);
+    console.log('Achievements:', data.achievements);
+    console.log('Image File:', data.image[0]);
     try {
-      const formData = new FormData();
-      formData.append('title', data.title);
-      formData.append('level', data.level);
-      formData.append('achievements', data.achievements);
-      formData.append('image', data.image[0]);
-      
-      console.log('FormData:', formData);
-
+        const formData = new FormData();
+        formData.append('title', data.title);
+        formData.append('level', data.level);
+        formData.append('achievements', data.achievements);
+        formData.append('image', data.image[0]);
+        formData.append('description', data.description);
+        formData.append('tags', JSON.stringify(data.tags));
+    
+        console.log('FormData:', formData);
+  
       const response = await createSkill(formData);
       console.log(response);
-
-      onClose(); // Fermer le formulaire après avoir ajouté la compétence
+  
+      onClose();
     } catch (error) {
       console.error(error);
     }
@@ -48,8 +54,37 @@ function SkillForm({ onClose }) {
       <div>
         <label htmlFor="image">
           <p>Image:</p>
-          <input {...register('image')} type="file" id="image" accept="image/jpg, image/jpeg, image/png, image/gif"/> {/* Utilisez {...register('file')} */}
+          <input {...register('image')} type="file" id="image" accept="image/jpg, image/jpeg, image/png, image/gif, image/webp"/>
         </label>
+      </div>
+      <div>
+        <label htmlFor="description">
+          <p>Description:</p>
+          <textarea id="description" {...register('description')} />
+        </label>
+      </div>
+      <div>
+        <p>Tags:</p>
+        <div>
+          {Array.from({ length: 3 }).map((_, index) => ( // Vous pouvez ajuster le nombre de tags ici
+            <div key={index}>
+              <label>
+                Nom du Tag:
+                <input
+                  type="text"
+                  {...register(`tags[${index}].name`)}
+                />
+              </label>
+              <label>
+                Lien du Tag:
+                <input
+                  type="text"
+                  {...register(`tags[${index}].link`)}
+                />
+              </label>
+            </div>
+          ))}
+        </div>
       </div>
       <button type="submit">Ajouter</button>
     </form>

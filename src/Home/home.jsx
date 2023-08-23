@@ -2,13 +2,14 @@ import React from 'react';
 import Gallery from '../composant/gallery/gallery';
 import "../Home/home.scss";
 import BannerPages from '../composant/banner-page/banner-pages';
+import Presentation from '../composant/Présentation/presentation';
 
     const Home = () => {
-        const imagePath = process.env.PUBLIC_URL + '/kasa/jpeg-header.jpg';
+        const imagePath = `${process.env.PUBLIC_URL}/kasa/competence.jpg`;
         const className = "banner-home";
 
-        const textDesktop = 'Chez vous, partout et ailleurs';
-        const textMobile = ['Chez vous,', 'partout et ailleurs'];
+        const textDesktop = 'Présentation de mes compétences';
+        const textMobile = ['Présentation de', 'mes compétences'];
 
         const isDesktop = window.innerWidth > 768; // Vérifie si l'affichage est en mode bureau (largeur > 768px)
 
@@ -16,6 +17,7 @@ import BannerPages from '../composant/banner-page/banner-pages';
 
         return (
             <div className='main'>
+                <Presentation/>
                 <BannerPages imagePath={imagePath} className={className} text={text} />
                 <Gallery />
             </div>

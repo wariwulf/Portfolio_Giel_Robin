@@ -2,7 +2,7 @@ body {
     display: flex;
     position: relative;
     justify-content: center;
-    max-width: 1980px; 
+    width: 100%; 
     margin: 0;
     min-height: 100vh;
 }
@@ -13,8 +13,8 @@ body {
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: fit-content;
-    padding-bottom: 300px;
+    height: 100%;
+    background-color: #002239;
 }
 
 @media (max-width: 768px) {

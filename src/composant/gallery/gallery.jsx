@@ -15,6 +15,7 @@ const Gallery = () => {
       } catch (error) {
         console.error('Erreur lors de la récupération des compétences:', error);
       }
+      console.log(skills);
     };
 
     fetchSkills();
@@ -22,15 +23,15 @@ const Gallery = () => {
 
   // Vérifier si un token est présent dans le localStorage
   const isUserLoggedIn = !!localStorage.getItem('token');
-
+  
+  console.log("Gallery skills:", skills); 
   return (
     <div className="gallery">
       <Cards data={skills} />
-
-      {/* Afficher le bouton "Ajouter un skill" uniquement si l'utilisateur est connecté */}
+      
       {isUserLoggedIn && <AddSkillButton />}
     </div>
   );
 };
-
+console.log(Cards);
 export default Gallery;

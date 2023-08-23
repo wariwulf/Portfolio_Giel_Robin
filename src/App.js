@@ -5,11 +5,12 @@ import About from './About/about';
 import Error from './Error/error';
 import Header from '../src/composant/header/header';
 import CardDetails from './cards-details/cards-details';
-import logementsData from '../src/data/logements.json';
 import Footer from './composant/footer/footer';
 import SignIn from './Login/login';
 import { useUser } from './customHooks';
 import { UserProvider } from './UserContext';
+import Projet from './About/projet/projet';
+import CardsDetailsPro from './cards-details/cards-details-pro';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -27,7 +28,9 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<SignIn setUser={setUser} />} />
         <Route path="/about" element={<About />} />
-        <Route path="/card/:id" element={<CardDetails data={logementsData} />} />
+        <Route path="/projet" element={<Projet/>}/>
+        <Route path="/card/:_id" element={<CardDetails />} />
+        <Route path="/card-pro/:_id" element={<CardsDetailsPro />} />
         <Route path="*" element={<Error />} />
       </Routes>
       <Footer/>

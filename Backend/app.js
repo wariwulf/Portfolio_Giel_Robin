@@ -8,6 +8,7 @@ const UPLOADS_DIR = path.join(__dirname, '../images');
 const skillsRoutes = require('./routes/skills');
 const userRoutes = require('./routes/user');
 const experienceRoutes = require('./routes/experience');
+const mailRoutes = require('./routes/mail')
 
 mongoose.connect("mongodb+srv://robin:jeanne123@cluster2.fkbry7i.mongodb.net/?retryWrites=true&w=majority", {
   useNewUrlParser: true,
@@ -26,8 +27,9 @@ app.use(cors());
 app.use('/api/skills', skillsRoutes);
 app.use('/api/auth', userRoutes);
 app.use('/api/experience', experienceRoutes);
+app.use('/send-mail', mailRoutes);
 
-app.use('/images', express.static(UPLOADS_DIR));
+app.use('/images', express.static(path.join(__dirname, 'images')));
 
 app.use((error, req, res, next) => {
   console.error(error.stack);

@@ -3,6 +3,17 @@ import { API_ROUTES } from '../constants';
 
 const baseURL = 'http://localhost:4000/api';
 
+//Logique du contact
+export const sendEmail = async (emailData) => {
+  try {
+    const response = await axios.post(API_ROUTES.EMAIL, emailData);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+
 const axiosInstance = axios.create({
     baseURL: API_ROUTES.API_URL,
     timeout: 5000, // Temps d'attente pour chaque requête
@@ -30,14 +41,34 @@ try {
 }
 }  
 
+//Logique des Skills
+
 export const getSkills = async () => {
     try {
-      const response = await axiosInstance.get('/skills');
+      const response = await axiosInstance.get(API_ROUTES.SKILLS);
       return response.data;
     } catch (error) {
       throw error;
     }
   };
+
+  export async function getOneSkill(skillId) {
+    try {
+      const response = await axios({
+        method: 'GET',
+        url: `${API_ROUTES.SKILLS}/${skillId}`,
+      });
+      console.log(skillId);
+      const skill = response.data;
+      console.log(skill);
+      // eslint-disable-next-line no-underscore-dangle
+      skill.id = skill._id;
+      return skill;
+    } catch (err) {
+      console.error(err);
+      return null;
+    }
+  }
   
   export const createSkill = async (skillData) => {
     try {
@@ -60,8 +91,17 @@ export const getSkills = async () => {
   };
   
   export const updateSkill = async (skillId, skillData) => {
+    const token = localStorage.getItem('token');
+    const userId = localStorage.getItem('userId');
     try {
-      const response = await axiosInstance.put(`/skills/${skillId}`, skillData);
+      const headers = {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'multipart/form-data',
+        UserId: userId, // Utilisez le bon type de contenu ici
+      };
+      const response = await axiosInstance.put(`${API_ROUTES.SKILLS}/${skillId}`, skillData, {
+        headers,
+    });
       return response.data;
     } catch (error) {
       throw error;
@@ -69,18 +109,26 @@ export const getSkills = async () => {
   };
   
   export const deleteSkill = async (skillId) => {
+    const token = localStorage.getItem('token');
     try {
-      const response = await axiosInstance.delete(`/skills/${skillId}`);
-      return response.data;
+        const headers = {
+            Authorization: `Bearer ${token}`,
+        };
+
+        const response = await axiosInstance.delete(`${API_ROUTES.SKILLS}/${skillId}`, {
+            headers,
+        });
+        
+        return response.data;
     } catch (error) {
-      throw error;
+        throw error;
     }
-  };
+};
   
   // Fonctions pour les expériences professionnelles
   export const getExperiences = async () => {
     try {
-      const response = await axiosInstance.get('/experiences');
+      const response = await axiosInstance.get(API_ROUTES.EXPERIENCES);
       return response.data;
     } catch (error) {
       throw error;
@@ -89,16 +137,49 @@ export const getSkills = async () => {
   
   export const createExperience = async (experienceData) => {
     try {
-      const response = await axiosInstance.post('/experiences', experienceData);
+      const token = localStorage.token;
+      const userId = localStorage.userId;
+
+      const response = await axiosInstance.post(API_ROUTES.EXPERIENCES, experienceData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
       return response.data;
     } catch (error) {
       throw error;
     }
   };
+
+  export async function getOneExperience(experienceId) {
+    console.log(experienceId);
+    try {
+      const response = await axios({
+        method: 'GET',
+        url: `${API_ROUTES.EXPERIENCES}/${experienceId}`,
+      });
+      const experience = response.data;
+      // eslint-disable-next-line no-underscore-dangle
+      experience.id = experience._id;
+      return experience;
+    } catch (err) {
+      console.error(err);
+      return null;
+    }
+  }
   
   export const updateExperience = async (experienceId, experienceData) => {
+    const token = localStorage.getItem('token');
+    const userId = localStorage.getItem('userId');
     try {
-      const response = await axiosInstance.put(`/experiences/${experienceId}`, experienceData);
+      const headers = {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'multipart/form-data',
+        UserId: userId,
+      };
+      const response = await axiosInstance.put(`${API_ROUTES.EXPERIENCES}/${experienceId}`, experienceData,{
+        headers
+      });
       return response.data;
     } catch (error) {
       throw error;
@@ -106,8 +187,15 @@ export const getSkills = async () => {
   };
   
   export const deleteExperience = async (experienceId) => {
+    const token = localStorage.getItem('token');
+    const userId = localStorage.getItem('userId');
     try {
-      const response = await axiosInstance.delete(`/experiences/${experienceId}`);
+      const headers = {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'multipart/form-data',
+        UserId: userId,
+      };
+      const response = await axiosInstance.delete(`${API_ROUTES.EXPERIENCES}/${experienceId}`, {headers});
       return response.data;
     } catch (error) {
       throw error;

@@ -23,47 +23,13 @@
 
             h2 {
                 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                color: #FF6060;
+                color: #FEAE00;
                 font-size: 2.5em;
                 font-weight: 600;
                 margin-block-end: 0;
             }
-
-            p {
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                color: #FF6060;
-                font-size: 1.5em;
-                font-weight: 500;
-                margin-block-start: 0;
-            }
         }
 
-        .host {
-            display: flex;
-            flex-direction: row-reverse;
-            align-items: center;
-            width: 50%;
-            order: 2;
-            margin-left: auto;
-
-            img {
-                border-radius: 100px;
-                border: 3px solid #FF6060;
-                margin-left: 50px;
-            }
-
-            span {
-                font-size: 25px;
-                color: #FF6060;
-                width: 2em;
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            }
-
-            .host-image {
-                width: 4em;
-                height: auto;
-            }
-        }
     }
 
 
@@ -77,38 +43,20 @@
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         font-weight: 300;
         order: 3;
-        width: 50%;
+        width: 100%;
 
-        span {
-            background-color: #FF6060;
+        a {
+            background-color: #77ACFF;
+            border: 1px solid #FEAE00;
             margin-right: 15px;
-            width: 8em;
+            width: max-content;
+            text-decoration: none;
+            color: gainsboro;
             height: 1.5em;
             border-radius: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
-        }
-    }
-
-    .rating {
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        order: 4;
-        width: 50%;
-        margin-left: auto;
-
-        .star-filled {
-            color: #FF6060;
-            border: none;
-            font-size: 40px;
-        }
-
-        .star-empty {
-            color: #E3E3E3;
-            border: none;
-            font-size: 40px;
         }
     }
 
@@ -138,7 +86,7 @@
         }
 
         .collapse-content {
-            width: 100%;
+            width: 99%;
             font-size: 20px;
         }
     }

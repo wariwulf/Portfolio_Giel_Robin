@@ -1,8 +1,8 @@
 .card {
     width: 100%;
     aspect-ratio: 1/1;
-    border: 1px solid #FF6060;
-    background-color: #FF6060;
+    border: solid 1px #FEAE00;
+    background-color: #002239;
     border-radius: 15px;
     padding: 10px;
     display: flex;
@@ -30,6 +30,49 @@
         margin-top: 10px;
         font-weight: 400;
       }
+
+      .circle-container {
+        position: relative;
+        width: 50%; 
+        height: 30%; /* Adjust the size of the circle */
+        margin: 0 auto;
+        overflow: hidden;
+      }
+      
+      .circle-svg {
+        display: block;
+        margin: 0 auto;
+      }
+      
+      .circle-bg {
+        fill: none;
+        stroke: #f2f2f2;
+        stroke-width: 4; /* Adjust the stroke width */
+      }
+      
+      .circle-fill {
+        fill: none;
+        stroke: #77acff; /* Fill color */
+        stroke-width: 4; /* Adjust the stroke width */
+        stroke-dasharray: 0;
+        transition: stroke-dashoffset 0.5s ease; /* Add a smooth transition */
+      }
+      
+      .circle-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        font-weight: bold;
+      }
+
+
   }
 
 .card:hover {

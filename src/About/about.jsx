@@ -13,25 +13,27 @@ const About = () => {
         <BannerPages imagePath={imagePath} className={className}/>
         <div className='collapse-about'> 
             <Collapse
-              title="Fiabilité"
-              content="Les annonces postées sur Kasa garentissent une fiabilité totale.
-                      Les photos sont conformes aux logements, et toutes les informations sont 
-                      régulièrement vérifiées par nos équipes."
+              title="Qui suis-je?"
+              content="Passionné depuis longtemps des technologies modernes, j'ai d'abord arpenté des métiers
+                      plus traditionnel. Bien qu'ayant aprécié ceux-ci et aillant grandement appris de ces expériences,
+                      il me fallait accomplir ce cheminement vers les métier du web.
+                      J'ai depuis lors cherché à assoifé ma soif de savoir et mon envie de maîtriser ce métier passionnant
+                      qu'est le Développement Web."
             />
             <Collapse 
-              title="Respect"
+              title="Réalisations et Projet"
               content="La bienveillance fait partie des valeurs fondatrices de Kasa.
                       Tout comportement discriminatoire ou de pertubation du voisinage entraînera
                       une exclusion de notre plateforme."
             />
             <Collapse
-              title="Service"
+              title="Compétences"
               content="La bienveillance fait partie des valeurs fondatrices de Kasa.
                       Tout comportement discriminatoire ou de pertubation du voisinage entraînera
                       une exclusion de notre plateforme."
             />
             <Collapse
-              title="Sécurité"
+              title="Objectif et aspirations"
               content="La sécurité est la priorité de Kasa. Aussi bien pour nos hôtes que pour les voyageurs,
                       chaque logement correspond aux critères de sécurité établis par nos services.
                       En laissant une note aussi bien à l'hôte qu'au locataire, cela permet à nos équipes

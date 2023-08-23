@@ -1,0 +1,56 @@
+.presentation {
+    width: 80%;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+    .img-presentation {
+        width: 30%;
+        height: 25em;
+        overflow: hidden; // Masque le contenu qui dépasse
+        border-radius: 50%;
+        border: 1px solid #FEAE00;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .présentation-txt {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 2em;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: gainsboro;
+
+        p {
+            font-style: italic;
+            font-weight: 300;
+        }
+
+        span {
+            font-weight: bold;
+        }
+
+
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .presentation {
+        width: 100%; 
+        padding: 15px; 
+
+        .img-presentation {
+            width: 50%; 
+            max-width: 200px; 
+            height: auto; 
+    }
+}
+}

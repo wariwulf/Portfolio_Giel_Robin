@@ -7,9 +7,11 @@ import { getOneExperience, deleteExperience } from '../api/api'; // Assurez-vous
 import ModProButton from "../composant/form/projetform/modProButton";
 import { API_ROUTES, APP_ROUTES } from "../constants";
 
+
 const CardsDetailsPro = () => {
   const { _id } = useParams();
   const [experienceData, setExperienceData] = useState(null);
+  const PUBLIC_URL = process.env.PUBLIC_URL;
 
 
   const handleDelete = async () => {
@@ -26,8 +28,17 @@ const CardsDetailsPro = () => {
     const fetchExperienceData = async () => {
       try {
         const data = await getOneExperience(_id);
-        console.log(_id); // Utilisez la fonction pour récupérer les détails de l'expérience
-        setExperienceData(data);
+        const formattedStartDate = new Date(data.startDate).toLocaleDateString('fr-FR');
+        const formattedEndDate = new Date(data.endDate).toLocaleDateString('fr-FR');
+        const descriptionLines = data.description.split('\n').map((line, index) => (
+          <p key={index}>{line}</p>
+        ));
+        setExperienceData({
+          ...data,
+          formattedStartDate,
+          formattedEndDate,
+          descriptionLines,
+        });
       } catch (error) {
         console.error('Error fetching experience data:', error);
       }
@@ -42,8 +53,9 @@ const CardsDetailsPro = () => {
 
   const isUserLoggedIn = !!localStorage.getItem('token');
 
+
 return (
-    <div className='cards-details'>
+    <div className='cards-details-pro'>
             <div className='carousel'>
                 <Slideshow
                     images={[experienceData.image]}
@@ -52,22 +64,31 @@ return (
                     nextArrowClassName="slideshow-arrow next-arrow"
                 />
             </div>
-            <div className='header-cd'>   
-                <div className='loc'>
-                    
+            <div className="buttonsPro">
+              {isUserLoggedIn && <ModProButton experienceId={experienceData.id}/>}
+              {isUserLoggedIn && <button onClick={handleDelete} className="button-delPro">Supprimer</button>}
+            </div>  
+            <div className='header-pro'>   
+                <div className='loc'>                  
                     <h2>{experienceData.title}</h2>
                     <h3 className="entreprise">{experienceData.company}</h3>
                 </div>
-                <div className="dates">
-                    <span>{experienceData.startDate}</span>
-                    <span>{experienceData.endDate}</span>
+                <div className="info">
+                  <div className="dates">
+                      <span>Date de début: {experienceData.formattedStartDate}</span>
+                      <span>Date de fin: {experienceData.formattedEndDate}</span>
+                  </div>
+                  <a href={experienceData.link} target="_blank">
+                    Lien vers le repo du projet
+                    <img className="img-link" src={`${process.env.PUBLIC_URL}/pngimg.com - github_PNG80.png`} alt="GitHub Repository" /> 
+                  </a>
                 </div>
             </div>
             <div className='coll'>
                 <div className='coll-1'>
                     <Collapse
                     title="Description"
-                    content={experienceData.description}
+                    content={experienceData.descriptionLines}
                     titleClassName="collapse-title"
                     contentClassName="collapse-content"
                 />
@@ -87,8 +108,6 @@ return (
                 />
             </div>
         </div>  
-        {isUserLoggedIn && <ModProButton experienceId={experienceData.id}/>}
-        {isUserLoggedIn && <button onClick={handleDelete}>Supprimer</button>}
     </div>
   );
 };

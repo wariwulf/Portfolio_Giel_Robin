@@ -28,7 +28,6 @@ const Gallery = () => {
   return (
     <div className="gallery">
       <Cards data={skills} />
-      
       {isUserLoggedIn && <AddSkillButton />}
     </div>
   );

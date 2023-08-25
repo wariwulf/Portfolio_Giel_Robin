@@ -42,12 +42,12 @@ li {
 li a {
     font-size: 25px;
     font-weight: 500;
-    color: #FEAE00;
+    color: gainsboro;
     text-decoration: none;
 }
 
 .active  {
-    border-bottom: 3px solid #FEAE00;
+    border-bottom: 3px solid #DAA520;
   }
 
   @media (max-width: 768px) {
@@ -62,11 +62,13 @@ li a {
         flex-direction: column;
 
         h1{
-            font-size: 2em;
+            font-size: 3em;
+            text-align: center;
         }
 
         h2 {
-            font-size: 1em;
+            font-size: 1.5em;
+            text-align: center;
         }
     }
 
@@ -82,15 +84,17 @@ li a {
         display: flex;
         justify-content: center;
         align-items: center;
+        width: 100%;
         
         li {
             width: max-content;
             margin-left: 5px;
             margin: 5px;
+            padding: 15px;
         }
 
         li a {
-            font-size: 15px;
+            font-size: 1.5em;
         }
     }
   }

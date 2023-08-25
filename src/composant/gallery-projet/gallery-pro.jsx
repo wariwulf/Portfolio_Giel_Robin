@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import ExperienceCards from '../cards/cards-pro'; // Assurez-vous d'avoir le bon chemin vers ExperienceCards
-import { getExperiences } from '../../api/api'; // Assurez-vous d'importer la fonction de récupération des expériences
+import ExperienceCards from '../cards/cards-pro'; 
+import { getExperiences } from '../../api/api'; 
 import '../gallery-projet/galery-pro.scss';
 import AddProButton from '../form/projetform/addProButton';
 
@@ -23,13 +23,10 @@ const ExperienceGallery = () => {
   // Vérifier si un token est présent dans le localStorage
   const isUserLoggedIn = !!localStorage.getItem('token');
   
-  console.log("Experience Gallery experiences:", experiences); 
   return (
     <div className="gallery-pro">
-        <AddProButton/>
-        <ExperienceCards experiences={experiences} /> {/* Passez les expériences au composant ExperienceCards */}
-      
-        <AddProButton/>
+        {isUserLoggedIn && <AddProButton/>}
+        <ExperienceCards experiences={experiences} />
     </div>
   );
 };

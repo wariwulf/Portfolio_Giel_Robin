@@ -1,0 +1,18 @@
+.button-modSkill {
+    padding: 1em;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1em;
+    font-weight: 700;
+    background-color: #77ACFF;
+    color: gainsboro;
+    border: 1px solid #DAA520 ;
+    border-radius: 25px;
+    margin: 1em;
+    opacity: 0.8;
+    width: 40%;
+}
+
+.button-modSkill:hover {
+    opacity: 1;
+    cursor: pointer;
+}

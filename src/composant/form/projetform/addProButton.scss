@@ -1,0 +1,17 @@
+.button-pro {
+    padding: 1em;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.5em;
+    font-weight: 700;
+    background-color: #002239;
+    color: gainsboro;
+    border: 1px solid #DAA520 ;
+    border-radius: 25px;
+    margin: 1em;
+    opacity: 0.8;
+}
+
+.button-pro:hover{
+    cursor: pointer;
+    opacity: 1;
+}

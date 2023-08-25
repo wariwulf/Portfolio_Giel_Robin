@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { createExperience } from '../../../api/api'; // Assurez-vous d'importer la fonction de création d'expérience
-
+import "./form-pro.scss";
 
 const AddExperienceForm = () => {
   const [title, setTitle] = useState('');

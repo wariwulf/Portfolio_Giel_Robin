@@ -1,0 +1,41 @@
+.add-experience-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    h2{
+        color: gainsboro;
+        text-align: center;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5em;
+
+        input {
+            font-size: 1.2em;
+            padding: 5px;
+            border-radius: 15px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        textarea {
+            font-size: 1.2em;
+            padding: 5px;
+            border-radius: 15px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        button {
+            font-size: 1.2em;
+            background-color: #002239;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 10px;
+            border: 1px solid #DAA520;
+            border-radius: 25px;
+            color: gainsboro;
+        }
+    }
+
+}

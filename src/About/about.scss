@@ -10,10 +10,17 @@
         align-items: center;
         width: 80%;
         gap: 20px;
+
+        .collapse-content {
+            color: #001024;
+            font-weight: 600;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
     }
 
     .banner-about {
-        width: 100%;
+        width: 50em;
         height: 200px;
         overflow: hidden;
         background-position: center;
@@ -25,6 +32,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            background-position: center;
             }
           
     }

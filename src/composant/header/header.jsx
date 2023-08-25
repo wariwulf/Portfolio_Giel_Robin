@@ -15,9 +15,7 @@ function Header() {
         // Supprimer le token et userId du local storage pour déconnecter l'utilisateur
         localStorage.removeItem('token');
         localStorage.removeItem('userId');
-        setUser(null); // Mettre à jour l'utilisateur déconnecté ici
 
-        // Actualiser la page pour refléter le changement
         window.location.reload();
     };
 

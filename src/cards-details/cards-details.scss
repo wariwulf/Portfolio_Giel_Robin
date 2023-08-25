@@ -10,6 +10,29 @@
         align-self: center;
         height: 30em;
         margin-top: 3em;
+        width: 70%;
+    }
+
+    .button-skill{
+
+        .button-delSkill{
+            padding: 1em;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 1em;
+            font-weight: 700;
+            background-color: #77ACFF;
+            color: gainsboro;
+            border: 1px solid #DAA520 ;
+            border-radius: 25px;
+            margin: 1em;
+            opacity: 0.8;
+            width: 50%;
+        }
+    
+        .button-delSkill:hover {
+            cursor: pointer;
+            opacity: 1;
+        }
     }
 
     .header-cd {
@@ -23,7 +46,7 @@
 
             h2 {
                 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                color: #FEAE00;
+                color: gainsboro;
                 font-size: 2.5em;
                 font-weight: 600;
                 margin-block-end: 0;
@@ -44,6 +67,7 @@
         font-weight: 300;
         order: 3;
         width: 100%;
+        margin-top: 1.5em;
 
         a {
             background-color: #77ACFF;
@@ -52,6 +76,7 @@
             width: max-content;
             text-decoration: none;
             color: gainsboro;
+            width: 100%;
             height: 1.5em;
             border-radius: 15px;
             display: flex;
@@ -64,7 +89,7 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        margin-top: 10px;
+        margin-top: 2em;
         width: 100%;
 
         .coll-1 {
@@ -81,13 +106,15 @@
 
         .collapse-title {
             width: 100%;
-            font-size: 20px;
-            border-radius: 15px;
+            font-size: 2em;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
         }
 
         .collapse-content {
-            width: 99%;
-            font-size: 20px;
+            width: 98.6%;
+            font-size: 1.5em;
+            color: #001024;
         }
     }
 }
@@ -187,9 +214,10 @@
             flex-wrap: wrap;
             align-items: center;
             margin: 0;
+            width: 100%;
 
             .coll-1 {
-                width: 100%;
+                width: 50%;
                 height: max-content;
                 justify-content: flex-start;
             }

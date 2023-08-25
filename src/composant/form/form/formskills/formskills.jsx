@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { createSkill } from '../../../../api/api';
+import "./formskills.scss";
 
 function SkillForm({ onClose }) {
   const [imgSrc, setImgSrc] = useState(null);

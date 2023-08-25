@@ -43,18 +43,24 @@ return (
             nextArrowClassName="slideshow-arrow next-arrow"
         />
     </div>
-    <div className='header-cd'>
+    <div className='button-skill'>
         {isUserLoggedIn && <ModSkillButton skillData={skillData}/>}
         {skillData && isUserLoggedIn && (
-        <button onClick={() => deleteSkill(skillData._id)}>Supprimer</button>
+            <button onClick={() => deleteSkill(skillData._id)} className='button-delSkill'>Supprimer</button>
         )}
+    </div>
+    <div className='header-cd'>
         <div className='loc'>
             <h2>{skillData.title}</h2>
         </div>
         
         <div className='tag'>
-            {skillData.tags.map((tag, index) => (
-            <a href={tag.link} key={index} className='tag-link'>{tag.name}</a>
+            {skillData.tags
+                .filter(tag => tag.link) // Filtrez les tags qui ont une valeur pour le champ "link"
+                .map((tag, index) => (
+                <a href={tag.link} key={index} className='tag-link' target='_blank'>
+                    {tag.name}
+                </a>
             ))}
         </div>
     </div>
@@ -69,7 +75,7 @@ return (
         </div>
         <div className='coll-2'>
             <Collapse 
-                title="Équipements" 
+                title="Réalisations" 
                 content={
                     <ul>
                         {skillData.achievements.map(achievements => (

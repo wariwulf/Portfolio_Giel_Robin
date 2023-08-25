@@ -3,34 +3,42 @@ import { Link } from 'react-router-dom';
 import '../cards/card-pro.scss';
 
 function ExperienceCards({ experiences }) {
-  console.log("Experience Cards data:", experiences);
 
   if (!experiences || !Array.isArray(experiences)) {
-    return null; // Ou retournez un message indiquant que les données sont vides
+    return null; 
   }
 
-  const cards = experiences.map((experience) => (
-    console.log("Experience ID:", experience._id),
-    <Link to={`/card-pro/${experience._id}`} key={experience._id}> {/* Assurez-vous que la prop "key" est définie ici */}
+  const cardsPro = experiences.map((experience) => (
+    <Link to={`/card-pro/${experience._id}`} key={experience._id} className='lien-pro'>
       <ExperienceCard
         title={experience.title}
-        description={experience.description}
+        company={experience.company}
         imageUrl={experience.image}
+        dateStart={experience.startDate}
+        dateEnd={experience.endDate}
       />
     </Link>
-  )); 
+  ));
+  
   
 
-  return <div className="experience-cards">{cards}</div>;
+  return cardsPro;
 }
 
-function ExperienceCard({ title, description, imageUrl }) {
+function ExperienceCard({ title, company, imageUrl, dateStart, dateEnd }) {
+  const formattedStartDate = new Date(dateStart).toLocaleDateString('fr-FR');
+  const formattedEndDate = new Date(dateEnd).toLocaleDateString('fr-FR');
+
   return (
     <div className="card-pro">
       <div className='card-image' style={{ backgroundImage: `url(${imageUrl})` }} />
       <div className="card-content">
         <h2>{title}</h2>
-        <p>{description}</p>
+        <span>{company}</span>
+        <div className='date'>
+          <p>Début:{formattedStartDate}</p>
+          <p>Fin:{formattedEndDate}</p>
+        </div>
       </div>
     </div>
   );

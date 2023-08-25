@@ -1,7 +1,7 @@
 .slideshow {
-    position: relative;
     display: flex;
     align-items: center;
+    justify-content: center;
     width: 100%;
     background-position: center; 
     background-size: cover;
@@ -9,9 +9,13 @@
     border-radius: 25px;
     border: 1px solid #f6f6f6;
 
-    .slideshow-image{
+    .slide {
+      display: flex;
         background-size: cover;
         background-position: center;
+        overflow: hidden;
+        width: 100%;
+        height: auto;
         border-radius: 25px;
     }
   }

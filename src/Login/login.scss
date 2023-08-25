@@ -4,48 +4,69 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    height: 100vh;
+    padding: 1em;
+    height: 70vh;
+    width: 60%;
     background-color: #77ACFF;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  
-    h1 {
-      font-size: 24px;
-      margin-bottom: 20px;
-    }
-  
-    form {
+    border-radius: 25px;
+    border: 2px solid gainsboro;
+
+    .avertisement {
       display: flex;
       flex-direction: column;
       align-items: center;
-      width: 300px;
-  
-      div {
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 15px;
-  
-        label {
-          font-size: 16px;
-          margin-bottom: 5px;
-        }
-  
-        input {
-          padding: 10px;
-          border: 1px solid #ccc;
-          border-radius: 5px;
-          font-size: 16px;
-          width: 100%;
-        }
+      margin-top: 3em;
+
+
+      h2 {
+        font-size: 2em;
+        margin-bottom: 20px;
       }
+
+      p {
+        font-size: 1.5em;
+        color: gainsboro;
+        text-align: center;
+      }
+    }
+
+  
+    .form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 80%;
+    
+        label {
+          font-size: 1.5em;
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          color: gainsboro;
+          margin-bottom: 5px;
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-bottom: 2em;
+
+          input {
+            padding: 10px;
+            border: 1px solid #DAA520;
+            border-radius: 15px;
+            font-size: 16px;
+            width: 50%;
+          }
+        }
+
   
       button {
         padding: 10px 20px;
-        background-color: #007bff;
-        color: #fff;
-        border: none;
-        border-radius: 5px;
-        font-size: 16px;
+        background-color: #002239;
+        color: gainsboro;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        border: 1px solid #DAA520;
+        border-radius: 25px;
+        font-size: 1.5em;
         cursor: pointer;
       }
     }

@@ -1,0 +1,123 @@
+.experience-form {
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+
+    .title-input {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 1.5em;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: gainsboro;
+    }
+
+    input {
+        font-size: 1em;
+        background-color: #001024;
+        color: gainsboro;
+        border: 2px solid  	#DAA520;
+        padding: 5px;
+        border-radius: 15px ;
+    }
+
+    textarea {
+        width: 100%;
+        height: 10em;
+        font-size: 1em;
+        background-color: #001024;
+        color: gainsboro;
+        border: 2px solid #DAA520;
+        padding: 5px;
+        border-radius: 15px;
+    }
+
+    .company-input {
+        display: flex;
+        width: 80%;
+        flex-direction: column;
+        align-items: center;
+        font-size: 1.5em;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: gainsboro;
+    }
+
+    .startDate-input {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 1.5em;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: gainsboro;
+    }
+
+    .endDate-input {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 1.5em;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: gainsboro;
+    }
+
+    .link-input {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 1.5em;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: gainsboro;
+    }
+
+    .desc-input {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 1.5em;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: gainsboro;
+    }
+
+    .image-pro {
+        width: 80%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 2em;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: gainsboro;
+
+        .img-visu {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    .real-input {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 1.5em;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: gainsboro;
+    }
+
+    .submit-modPro {
+        font-size: 2em;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: gainsboro;
+        border-radius: 25px;
+        border: 1px solid #DAA520;
+        padding: 5px;
+        background-color: #002239;
+    }
+}

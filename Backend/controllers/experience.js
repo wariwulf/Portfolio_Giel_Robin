@@ -4,8 +4,9 @@ const Experience = require('../models/experience');
 const fs = require('fs');
 
 exports.createExperience = (req, res) => {
-  const { title, company, startDate, endDate, description, achievements, link } = req.body;
-  
+  const { title, company, startDate, endDate, description, link } = req.body;
+  const achievements = req.body.achievements.split(';').map(achievements => achievements.trim());
+
   const experience = new Experience({
     title,
     company,
@@ -13,7 +14,7 @@ exports.createExperience = (req, res) => {
     endDate,
     description,
     image: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`,
-    achievements,
+    achievements: achievements || [],
     link,
   });
 
@@ -25,6 +26,7 @@ exports.createExperience = (req, res) => {
 exports.updateExperience = (req, res) => {
   const experienceObject = req.file ? {
     ...JSON.parse(req.body.experience),
+    achievements: achievements || [],
     image: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
   } : { ...req.body };
 

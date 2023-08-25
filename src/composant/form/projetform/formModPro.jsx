@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { updateExperience, getOneExperience } from '../../../api/api';
+import "./formModPro.scss";
 
 function ExperienceEditForm({ experienceId, onClose }) {
   const { register, handleSubmit, setValue } = useForm();
@@ -30,6 +31,7 @@ function ExperienceEditForm({ experienceId, onClose }) {
   }, [experienceId, setValue]);
 
   const onSubmit = async (data) => {
+    console.log('Submitted Data:', data);
     try {
       const formData = new FormData();
       formData.append('experience', JSON.stringify({
@@ -56,33 +58,33 @@ function ExperienceEditForm({ experienceId, onClose }) {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="experience-form" encType="multipart/form-data">
-      <div>
+      <div className='title-input'>
         <label htmlFor="title">Titre:</label>
         <input type="text" id="title" {...register('title')} />
       </div>
-      <div>
+      <div className='company-input'>
         <label htmlFor='company'>Entreprise:</label>
         <input type="text" id='company' {...register('company')} />
       </div>
-      <div>
+      <div className='startDate-input'>
         <label htmlFor='startDate'>Date de début:</label>
         <input type="date" id="startDate" {...register('startDate')} />
       </div>
-      <div>
+      <div className='endDate-input'>
         <label htmlFor='endDate'>Date de fin:</label>
         <input type="date" id="endDate" {...register('endDate')} />
       </div>
-      <div>
+      <div className='link-input'>
         <label htmlFor='link'>Lien du projet:</label>
         <input type='url' placeholder="Lien du Projet" {...register('link')} />
       </div>
-      <div>
+      <div className='desc-input'>
         <label htmlFor='description'>Description:</label>
         <textarea placeholder="Description" {...register('description')} />
       </div>
-      <div>
+      <div className='image-pro'>
         <label htmlFor='image'>Image:</label>
-        {experienceData && <img src={experienceData.image} alt="Experience" />}
+        {experienceData && <img src={experienceData.image} alt="Experience" className='img-visu'/>}
         <input
           type="file"
           accept="image/*"
@@ -98,12 +100,12 @@ function ExperienceEditForm({ experienceId, onClose }) {
           {...register('image')}
         />
       </div>
-      <div>
+      <div className='real-input'>
         <label htmlFor='achievements'>Réalisations:</label>
-        <textarea placeholder="Réalisations" {...register('achievements')} />
+        <input type='text' placeholder="Réalisations" {...register('achievements')} />
       </div>
       <div>
-        <button type="submit">Modifier</button>
+        <button className='submit-modPro' type="submit">Modifier</button>
       </div>
     </form>
   );
